@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Featured Projects - Heaveans Creative Labs</title>
+    <title>Projects - Heaveans Creative Labs</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -184,70 +184,107 @@
     <section id="projects" class="visible">
         <div class="section-header">
             <div class="section-label">Selected Work</div>
-            <h2 class="section-title">Featured <span class="text-orange">Projects</span></h2>
+            <h2 class="section-title">Ideas in <span class="text-orange">Motion</span></h2>
             <p class="section-desc">
-                A curated collection of our most impactful work across industries and disciplines.
+                Explorations moving from research and experimentation toward prototypes, pilots
+                and, where possible, real-world deployment.
             </p>
         </div>
         <div class="projects-filter">
             <button class="filter-btn active" onclick="filterProjects('all', this)">All</button>
-            <button class="filter-btn" onclick="filterProjects('branding', this)">Branding</button>
-            <button class="filter-btn" onclick="filterProjects('web', this)">Web</button>
-            <button class="filter-btn" onclick="filterProjects('app', this)">App</button>
+            <button class="filter-btn" onclick="filterProjects('research', this)">Research</button>
+            <button class="filter-btn" onclick="filterProjects('engineering', this)">Engineering</button>
+            <button class="filter-btn" onclick="filterProjects('portfolio', this)">Design & Web</button>
         </div>
         <div class="projects-grid">
-            <div class="project-card" data-category="branding">
+            <div class="project-card" data-category="engineering">
                 <div class="project-image" style="background: linear-gradient(135deg, #1a2744, #2d4a6b);"></div>
                 <div class="project-overlay">
                     <div class="project-arrow">&rarr;</div>
-                    <div class="project-category">Branding</div>
-                    <h3 class="project-name">Project One</h3>
-                    <p class="project-desc">Complete brand identity project</p>
+                    <div class="project-category">Engineering · AI · Energy</div>
+                    <h3 class="project-name">GridSense AI</h3>
+                    <p class="project-desc">Detecting abnormal electricity consumption through signal processing and machine learning.</p>
                 </div>
             </div>
-            <div class="project-card" data-category="web">
+            <div class="project-card" data-category="research">
                 <div class="project-image" style="background: linear-gradient(135deg, #243b55, #1a2744);"></div>
                 <div class="project-overlay">
                     <div class="project-arrow">&rarr;</div>
-                    <div class="project-category">Web Design</div>
-                    <h3 class="project-name">Project Two</h3>
-                    <p class="project-desc">Responsive website with booking system</p>
+                    <div class="project-category">AI · Climate · Digital Twins</div>
+                    <h3 class="project-name">UrbanTwin AI</h3>
+                    <p class="project-desc">Predictive digital twins for understanding climate risk, infrastructure stress and urban change.</p>
                 </div>
             </div>
-            <div class="project-card" data-category="app">
+            <div class="project-card" data-category="research">
                 <div class="project-image" style="background: linear-gradient(135deg, #2d4a6b, #1a2744);"></div>
                 <div class="project-overlay">
                     <div class="project-arrow">&rarr;</div>
-                    <div class="project-category">App</div>
-                    <h3 class="project-name">Project Three</h3>
-                    <p class="project-desc">Mobile app for personalized tracking</p>
+                    <div class="project-category">Climate · Food Systems · IoT</div>
+                    <h3 class="project-name">AeroFresh</h3>
+                    <p class="project-desc">Making food waste visible through connected devices, data acquisition and analytics.</p>
                 </div>
             </div>
-            <div class="project-card" data-category="branding">
+            <div class="project-card" data-category="engineering">
                 <div class="project-image" style="background: linear-gradient(135deg, #1a2744, #243b55);"></div>
                 <div class="project-overlay">
                     <div class="project-arrow">&rarr;</div>
-                    <div class="project-category">Branding</div>
-                    <h3 class="project-name">Project Four</h3>
-                    <p class="project-desc">Minimalist brand identity system</p>
+                    <div class="project-category">Engineering · Health Technology</div>
+                    <h3 class="project-name">NestCare</h3>
+                    <p class="project-desc">A concept for neonatal equipment that is more resilient to unstable power environments.</p>
                 </div>
             </div>
-            <div class="project-card" data-category="web">
+            <div class="project-card" data-category="research">
                 <div class="project-image" style="background: linear-gradient(135deg, #243b55, #2d4a6b);"></div>
                 <div class="project-overlay">
                     <div class="project-arrow">&rarr;</div>
-                    <div class="project-category">Web Design</div>
-                    <h3 class="project-name">Project Five</h3>
-                    <p class="project-desc">Interactive platform with data viz</p>
+                    <div class="project-category">AI · Digital · Knowledge</div>
+                    <h3 class="project-name">Aquila</h3>
+                    <p class="project-desc">Intelligent digital assistance for exploring scripture, Christian knowledge and learning.</p>
                 </div>
             </div>
-            <div class="project-card" data-category="app">
+            <div class="project-card" data-category="research">
                 <div class="project-image" style="background: linear-gradient(135deg, #2d4a6b, #243b55);"></div>
                 <div class="project-overlay">
                     <div class="project-arrow">&rarr;</div>
-                    <div class="project-category">App</div>
-                    <h3 class="project-name">Project Six</h3>
-                    <p class="project-desc">Wellness and productivity companion app</p>
+                    <div class="project-category">AI · Knowledge · Digital</div>
+                    <h3 class="project-name">DawaYetu</h3>
+                    <p class="project-desc">Knowledge systems for organizing and responsibly presenting traditional herbal knowledge.</p>
+                </div>
+            </div>
+            <div class="project-card" data-category="research">
+                <div class="project-image" style="background: linear-gradient(135deg, #243b55, #2d4a6b);"></div>
+                <div class="project-overlay">
+                    <div class="project-arrow">&rarr;</div>
+                    <div class="project-category">Telecommunications · AI · Geospatial</div>
+                    <h3 class="project-name">Wekeza WSDB</h3>
+                    <p class="project-desc">Exploring spectrum-aware connectivity through a Kenyan-owned TV White Space database.</p>
+                </div>
+            </div>
+            <div class="project-card" data-category="engineering">
+                <div class="project-image" style="background: linear-gradient(135deg, #2d4a6b, #1a2744);"></div>
+                <div class="project-overlay">
+                    <div class="project-arrow">&rarr;</div>
+                    <div class="project-category">Aerospace · GNSS · Signal Processing</div>
+                    <h3 class="project-name">Anga Sentinel</h3>
+                    <p class="project-desc">A proposed East African network for studying ionospheric effects and signal disturbances.</p>
+                </div>
+            </div>
+            <div class="project-card" data-category="engineering">
+                <div class="project-image" style="background: linear-gradient(135deg, #1a2744, #243b55);"></div>
+                <div class="project-overlay">
+                    <div class="project-arrow">&rarr;</div>
+                    <div class="project-category">Radar · Climate · AI</div>
+                    <h3 class="project-name">Radari Mvua</h3>
+                    <p class="project-desc">Low-cost radar and AI approaches to rainfall monitoring and flood intelligence.</p>
+                </div>
+            </div>
+            <div class="project-card" data-category="portfolio">
+                <div class="project-image" style="background: linear-gradient(135deg, #2d4a6b, #243b55);"></div>
+                <div class="project-overlay">
+                    <div class="project-arrow">&rarr;</div>
+                    <div class="project-category">Graphic Design · Web Development</div>
+                    <h3 class="project-name">Portfolio Archive</h3>
+                    <p class="project-desc">Graphic design and web development work will be added here soon.</p>
                 </div>
             </div>
         </div>
@@ -256,7 +293,7 @@
     <!-- Footer -->
     <footer>
         <div class="logo">Heaveans<span>.</span></div>
-        <p>Creating digital experiences that inspire and endure.</p>
+        <p>Design, engineering and intelligence in motion.</p>
         <div class="social-links">
             <a href="https://x.com" target="_blank" aria-label="X / Twitter">𝕏</a>
             <a href="https://facebook.com" target="_blank" aria-label="Facebook">f</a>
