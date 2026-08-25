@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Lab - Heaveans Creative Labs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/shared.css">
+    <style>
+        #lab { background: var(--navy-900); }
+        .lab-intro { max-width: 780px; margin-right: auto; margin-left: auto; color: var(--white-300); font-size: 1.1rem; font-weight: 300; }
+        .lab-intro p + p { margin-top: 1.25rem; }
+        .research-grid, .philosophy-grid { display: grid; gap: 1.5rem; }
+        .research-grid { grid-template-columns: repeat(2, 1fr); }
+        .research-card { border-top: 2px solid var(--orange-500); padding-top: 1.25rem; }
+        .research-card h3 { font-size: 1.2rem; margin-bottom: 0.7rem; }
+        .research-card p, .philosophy-card p { color: var(--white-300); font-size: 0.95rem; }
+        .philosophy { min-height: auto; background: var(--navy-800); }
+        .philosophy-grid { grid-template-columns: repeat(4, 1fr); }
+        .philosophy-card h3 { font-size: 1.1rem; margin-bottom: 0.6rem; }
+        .lab-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 3rem; }
+        @media (max-width: 768px) { .research-grid, .philosophy-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <div class="loading" id="loader"><div class="loader"></div></div>
+    <div class="cursor" id="cursor"></div><div class="cursor-follower" id="cursorFollower"></div>
+    <nav id="navbar">
+        <a href="index.html" class="logo">Heaveans<span>.</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li><li><a href="about.html">Creative</a></li><li><a href="engineering.html">Engineering</a></li>
+            <li><a href="labs.html">Labs</a></li><li><a href="about-us.html">About Us</a></li><li><a href="projects.html">Projects</a></li>
+        </ul>
+        <a href="start-project.html" class="nav-contact">Contact Us</a>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">&#9776;</button>
+    </nav>
+    <div id="mobileMenu">
+        <a href="index.html">Home</a><a href="about.html">Creative</a><a href="engineering.html">Engineering</a><a href="labs.html">Labs</a>
+        <a href="about-us.html">About Us</a><a href="projects.html">Projects</a><a href="start-project.html">Contact Us</a><button class="close-btn" onclick="toggleMobileMenu()">&#10005;</button>
+    </div>
+    <section id="lab" class="visible">
+        <div class="section-header"><div class="section-label">The Lab</div><h1 class="section-title">Curiosity Needs a <span class="text-orange">Workspace.</span></h1></div>
+        <div class="lab-intro"><p>The Lab is where we test ideas before they become products.</p><p>We prototype.</p><p>We simulate.</p><p>We analyse.</p><p>We experiment.</p><p>We investigate.</p><p>Some experiments become projects. Some become prototypes. Some simply lead to better questions.</p></div>
+    </section>
+    <section class="lab-section visible"><div class="section-header"><div class="section-label">Work in Progress</div><h2 class="section-title">Current Research <span class="text-orange">Areas</span></h2></div><div class="research-grid"><article class="research-card"><h3>Wavelet-Based Signal Detection</h3><p>Investigating wavelet-based techniques for identifying patterns and anomalies within complex signals.</p></article><article class="research-card"><h3>GNSS Signal Monitoring</h3><p>Exploring satellite-navigation signals, digital signal processing and methods for understanding signal behaviour and disturbances.</p></article><article class="research-card"><h3>Radar Rainfall Classification</h3><p>Exploring radar, artificial intelligence and signal processing for rainfall classification and weather intelligence.</p></article><article class="research-card"><h3>Spectrum-Aware Connectivity</h3><p>Investigating geospatial and telecommunications systems for more intelligent use of wireless spectrum.</p></article></div></section>
+    <section class="philosophy visible"><div class="section-header"><div class="section-label">How We Work</div><h2 class="section-title">Engineering <span class="text-orange">Philosophy</span></h2></div><div class="philosophy-grid"><article class="philosophy-card"><h3>Prototype Before You Overpromise.</h3><p>A working prototype can reveal limitations that a presentation cannot.</p></article><article class="philosophy-card"><h3>Design for Reality.</h3><p>Technology must account for the environments in which it will actually operate.</p></article><article class="philosophy-card"><h3>Measure What Matters.</h3><p>Engineering decisions should be grounded in evidence, testing and measurable performance.</p></article><article class="philosophy-card"><h3>Stay Curious.</h3><p>Every experiment should produce either a useful result or a better question.</p></article></div><div class="lab-actions"><a href="projects.html" class="btn btn-secondary">Explore Engineering Projects &rarr;</a><a href="start-project.html" class="btn btn-primary">Collaborate With the Lab &rarr;</a></div></section>
+    <footer class="site-footer"><div class="footer-grid"><div class="footer-brand"><div class="logo">Heaveans<span>.</span></div><p>Design &times; Engineering &times; Intelligence</p><span class="footer-location">Kenya</span></div><div class="footer-column"><h3>Explore</h3><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="about.html">Creative</a></li><li><a href="engineering.html">Engineering</a></li><li><a href="projects.html">Projects</a></li><li><a href="about-us.html">About Us</a></li><li><a href="start-project.html">Start a Project</a></li></ul></div><div class="footer-column"><h3>Connect</h3><ul class="footer-links footer-connect"><li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li><li><a href="https://facebook.com" target="_blank">Facebook</a></li><li><a href="https://instagram.com" target="_blank">Instagram</a></li><li><a href="https://github.com" target="_blank">GitHub</a></li><li><a href="https://x.com" target="_blank">X</a></li><li><a href="https://youtube.com" target="_blank">YouTube</a></li><li><a href="https://tiktok.com" target="_blank">TikTok</a></li></ul></div></div><div class="footer-bottom"><p>Built in Africa. Exploring everywhere.</p><p>&copy; 2026 Heaveans Creative Labs</p></div></footer>
+    <script src="../js/shared.js"></script>
+</body>
+</html>

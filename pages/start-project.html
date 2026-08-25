@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Heaveans Creative Labs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/shared.css">
+    <style>
+        /* Lab Section */
+        #lab {
+            background: var(--navy-800);
+            display: flex;
+            align-items: center;
+        }
+
+        .lab-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .lab-info h2 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .lab-info p {
+            color: var(--white-300);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--white-200);
+        }
+
+        .contact-item .icon {
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 107, 53, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--orange-500);
+            font-size: 1.1rem;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 3rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--white-200);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--orange-500);
+            background: rgba(255, 107, 53, 0.05);
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.1rem;
+            background: var(--orange-500);
+            color: var(--white);
+            border: none;
+            border-radius: 12px;
+            font-family: 'Geist', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn:hover {
+            background: var(--orange-600);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        @media (max-width: 1024px) {
+            .lab-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .lab-container {
+                gap: 2rem;
+            }
+
+            .contact-form {
+                padding: 2rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursorFollower"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="index.html" class="logo">
+            Heaveans<span>.</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">Creative</a></li>
+            <li><a href="engineering.html">Engineering</a></li>
+            <li><a href="labs.html">Labs</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="projects.html">Projects</a></li>
+        </ul>
+        <a href="start-project.html" class="nav-contact">Contact Us</a>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">&#9776;</button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="about.html">Creative</a>
+        <a href="engineering.html">Engineering</a>
+        <a href="labs.html">Labs</a>
+        <a href="about-us.html">About Us</a>
+        <a href="projects.html">Projects</a>
+        <a href="start-project.html">Contact Us</a>
+        <button class="close-btn" onclick="toggleMobileMenu()">&#10005;</button>
+    </div>
+
+    <!-- Lab Section -->
+    <section id="lab" class="visible">
+        <div class="lab-container">
+            <div class="lab-info">
+                <div class="section-label">Contact Us · Collaboration</div>
+                <h2>Let's Start a <span class="text-orange">Conversation</span></h2>
+                <p>
+                    The Lab is where we test ideas before they become products. Tell us about
+                    a brand, digital product, technical prototype, research question or idea
+                    that does not have a name yet.
+                </p>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="icon">&#9993;</div>
+                        <span>hello@heaveanscreativelabs.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon">&#9742;</div>
+                        <span>Design · Engineering · Intelligence</span>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon">&#8982;</div>
+                        <span>Kenya</span>
+                    </div>
+                </div>
+            </div>
+            <form class="contact-form" onsubmit="handleSubmit(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" placeholder="Your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="you@example.com" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="organization">Organization</label>
+                    <input type="text" id="organization" placeholder="Your organization">
+                </div>
+                <div class="form-group">
+                    <label for="projectType">Project Type</label>
+                    <select id="projectType" required>
+                        <option value="">Select a project type</option>
+                        <option value="creative">Creative</option>
+                        <option value="digital">Digital</option>
+                        <option value="ai">AI</option>
+                        <option value="engineering">Engineering</option>
+                        <option value="research">Research</option>
+                        <option value="climate">Climate</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="budget">Budget Range</label>
+                    <select id="budget">
+                        <option value="">Select budget</option>
+                        <option value="under-50k">Under KSh 50,000</option>
+                        <option value="50k-150k">KSh 50,000 - 150,000</option>
+                        <option value="150k-500k">KSh 150,000 - 500,000</option>
+                        <option value="500k+">KSh 500,000+</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="timeline">Timeline</label>
+                    <input type="text" id="timeline" placeholder="When would you like to begin?">
+                </div>
+                <div class="form-group">
+                    <label for="attachment">Attachment</label>
+                    <input type="file" id="attachment">
+                </div>
+                <div class="form-group">
+                    <label for="message">Project Details</label>
+                    <textarea id="message" placeholder="Tell us about your project, goals, and timeline..." required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message &rarr;</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer"><div class="footer-grid"><div class="footer-brand"><div class="logo">Heaveans<span>.</span></div><p>Design &times; Engineering &times; Intelligence</p><span class="footer-location">Kenya</span></div><div class="footer-column"><h3>Explore</h3><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="about.html">Creative</a></li><li><a href="engineering.html">Engineering</a></li><li><a href="projects.html">Projects</a></li><li><a href="about-us.html">About Us</a></li><li><a href="start-project.html">Start a Project</a></li></ul></div><div class="footer-column"><h3>Connect</h3><ul class="footer-links footer-connect"><li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li><li><a href="https://facebook.com" target="_blank">Facebook</a></li><li><a href="https://instagram.com" target="_blank">Instagram</a></li><li><a href="https://github.com" target="_blank">GitHub</a></li><li><a href="https://x.com" target="_blank">X</a></li><li><a href="https://youtube.com" target="_blank">YouTube</a></li><li><a href="https://tiktok.com" target="_blank">TikTok</a></li></ul></div></div><div class="footer-bottom"><p>Built in Africa. Exploring everywhere.</p><p>&copy; 2026 Heaveans Creative Labs</p></div></footer>
+
+    <script src="../js/shared.js"></script>
+    <script>
+        function handleSubmit(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('.submit-btn');
+            const originalText = btn.innerHTML;
+
+            btn.innerHTML = 'Sending...';
+            btn.style.opacity = '0.7';
+
+            setTimeout(() => {
+                btn.innerHTML = 'Message Sent! &#10003;';
+                btn.style.background = '#2d6a4f';
+
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.background = '';
+                    btn.style.opacity = '1';
+                    e.target.reset();
+                }, 2000);
+            }, 1500);
+        }
+    </script>
+</body>
+</html>

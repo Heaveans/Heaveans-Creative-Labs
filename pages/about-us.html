@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Heaveans Creative Labs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/shared.css">
+    <style>
+        #about-us { background: var(--navy-900); }
+        .about-layout { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr); gap: 5rem; align-items: start; }
+        .about-lead { font: 300 clamp(1.5rem, 3vw, 2.35rem)/1.35 'Geist', sans-serif; color: var(--white); }
+        .about-copy { color: var(--white-300); margin-top: 1.5rem; max-width: 620px; }
+        .about-aside { border-left: 2px solid var(--orange-500); padding-left: 2rem; }
+        .about-aside h3 { font-size: 1rem; color: var(--orange-400); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1.5rem; }
+        .about-aside p { color: var(--white-300); margin-bottom: 1.25rem; }
+        .values { min-height: auto; background: var(--navy-800); }
+        .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .value h3 { font-size: 1.3rem; margin-bottom: 0.75rem; }
+        .value p { color: var(--white-300); font-size: 0.95rem; }
+        .about-copy p + p, .philosophy-copy p + p { margin-top: 1.25rem; }
+        .about-section { min-height: auto; background: var(--navy-900); }
+        .about-section.alt { background: var(--navy-800); }
+        .about-copy, .philosophy-copy { max-width: 800px; margin-right: auto; margin-left: auto; color: var(--white-300); font-size: 1.05rem; font-weight: 300; }
+        .philosophy-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem 4rem; }
+        .philosophy-item { border-top: 2px solid var(--orange-500); padding-top: 1.25rem; }
+        .philosophy-item h3 { font-size: 1.25rem; margin-bottom: 0.75rem; }
+        .philosophy-item p { color: var(--white-300); font-size: 0.95rem; }
+        .journey { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+        .journey-item { border-left: 2px solid var(--orange-500); padding-left: 1.25rem; }
+        .journey-item h3 { color: var(--orange-400); font-size: 1.2rem; margin-bottom: 0.75rem; }
+        .journey-item p { color: var(--white-300); font-size: 0.95rem; }
+        .outlook { max-width: 800px; margin-right: auto; margin-left: auto; color: var(--white-300); font-size: 1.1rem; font-weight: 300; }
+        @media (max-width: 768px) { .about-layout, .values-grid, .philosophy-grid, .journey { grid-template-columns: 1fr; gap: 2.5rem; } .about-aside { padding-left: 1.25rem; } }
+    </style>
+</head>
+<body>
+    <div class="loading" id="loader"><div class="loader"></div></div>
+    <div class="cursor" id="cursor"></div><div class="cursor-follower" id="cursorFollower"></div>
+    <nav id="navbar">
+        <a href="index.html" class="logo">Heaveans<span>.</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li><li><a href="about.html">Creative</a></li>
+            <li><a href="engineering.html">Engineering</a></li><li><a href="labs.html">Labs</a></li><li><a href="about-us.html">About Us</a></li>
+            <li><a href="projects.html">Projects</a></li>
+        </ul>
+        <a href="start-project.html" class="nav-contact">Contact Us</a>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">&#9776;</button>
+    </nav>
+    <div id="mobileMenu">
+        <a href="index.html">Home</a><a href="about.html">Creative</a><a href="engineering.html">Engineering</a><a href="labs.html">Labs</a>
+        <a href="about-us.html">About Us</a><a href="projects.html">Projects</a><a href="start-project.html">Contact Us</a>
+        <button class="close-btn" onclick="toggleMobileMenu()">&#10005;</button>
+    </div>
+    <section id="about-us" class="about-section visible">
+        <div class="section-header"><div class="section-label">About Heaveans</div><h1 class="section-title">A Creative Lab for Ideas That Don't Fit Into <span class="text-orange">One Box.</span></h1></div>
+        <div class="about-copy"><p>Heaveans Creative Labs is a multidisciplinary creative-technology and innovation studio from Kenya.</p><p>We explore the space between creativity and technology — combining design thinking with engineering, artificial intelligence, experimentation and research.</p><p>Our work spans visual communication, digital products, intelligent systems, connected technologies, climate innovation, telecommunications and aerospace.</p><p>We are interested in ideas that cross boundaries.</p><p>Because some problems cannot be solved from a single discipline.</p></div>
+    </section>
+    <section class="about-section alt visible">
+        <div class="section-header"><div class="section-label">Why Heaveans?</div><h2 class="section-title">Design <span class="text-orange">×</span> Engineering <span class="text-orange">×</span> Intelligence</h2></div>
+        <div class="about-copy"><p>We do not see these disciplines as separate worlds.</p><p>Design helps technology communicate.</p><p>Engineering makes ideas tangible.</p><p>Artificial intelligence creates new possibilities.</p><p>Together, they create systems that can be understood, tested and improved.</p></div>
+    </section>
+    <section class="about-section visible">
+        <div class="section-header"><div class="section-label">Our Philosophy</div><h2 class="section-title">Explore Before You <span class="text-orange">Assume.</span></h2></div>
+        <div class="philosophy-grid"><article class="philosophy-item"><h3>Explore Before You Assume.</h3><p>Good ideas deserve to be tested. We prefer evidence over assumption and experimentation over speculation.</p></article><article class="philosophy-item"><h3>Build Before You Overpromise.</h3><p>A prototype can reveal more than a presentation. Honest experimentation is more valuable than making claims a system cannot yet support.</p></article><article class="philosophy-item"><h3>Connect Disciplines.</h3><p>Design can improve engineering. Engineering can unlock creativity. Intelligence can connect both. The most interesting opportunities often exist between disciplines.</p></article><article class="philosophy-item"><h3>Start Where You Are.</h3><p>African innovation does not need to imitate another environment. It can begin with the realities, constraints and opportunities around us.</p></article><article class="philosophy-item"><h3>Keep Asking.</h3><p>The Lab exists because there are always better questions to investigate.</p></article></div>
+    </section>
+    <section class="about-section alt visible">
+        <div class="section-header"><div class="section-label">Our Journey</div><h2 class="section-title">Still <span class="text-orange">Becoming</span></h2></div>
+        <div class="journey"><article class="journey-item"><h3>2024 — Foundation</h3><p>Heaveans begins as an exploration of creative and digital possibilities.</p></article><article class="journey-item"><h3>2025 — Digital &amp; Creative Experiments</h3><p>The work expands across digital products, creative technology and experimental ideas.</p></article><article class="journey-item"><h3>2026 — Technology &amp; Engineering Expansion</h3><p>Engineering, artificial intelligence, climate technology, telecommunications and aerospace become part of the Lab's growing exploration.</p></article><article class="journey-item"><h3>Next — Open-Ended</h3><p>The next project begins with the next question.</p></article></div>
+    </section>
+    <section class="about-section visible"><div class="section-header"><div class="section-label">Our Perspective</div><h2 class="section-title">Built in Africa. <span class="text-orange">Exploring Everywhere.</span></h2></div><div class="outlook"><p>Heaveans begins from Kenya and looks outward.</p><p>We are interested in technology that responds to local realities while contributing to broader conversations in design, engineering and innovation.</p></div></section>
+    <footer class="site-footer"><div class="footer-grid"><div class="footer-brand"><div class="logo">Heaveans<span>.</span></div><p>Design &times; Engineering &times; Intelligence</p><span class="footer-location">Kenya</span></div><div class="footer-column"><h3>Explore</h3><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="about.html">Creative</a></li><li><a href="engineering.html">Engineering</a></li><li><a href="projects.html">Projects</a></li><li><a href="about-us.html">About Us</a></li><li><a href="start-project.html">Start a Project</a></li></ul></div><div class="footer-column"><h3>Connect</h3><ul class="footer-links footer-connect"><li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li><li><a href="https://facebook.com" target="_blank">Facebook</a></li><li><a href="https://instagram.com" target="_blank">Instagram</a></li><li><a href="https://github.com" target="_blank">GitHub</a></li><li><a href="https://x.com" target="_blank">X</a></li><li><a href="https://youtube.com" target="_blank">YouTube</a></li><li><a href="https://tiktok.com" target="_blank">TikTok</a></li></ul></div></div><div class="footer-bottom"><p>Built in Africa. Exploring everywhere.</p><p>&copy; 2026 Heaveans Creative Labs</p></div></footer>
+    <script src="../js/shared.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineering - Heaveans Creative Labs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/shared.css">
+    <style>
+        #engineering { background: var(--navy-800); }
+        .engineering-grid, .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+        .engineering-card, .principle {
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.025);
+            border-radius: 12px;
+        }
+        .engineering-card { min-height: 220px; }
+        .engineering-card .number { color: var(--orange-500); font: 600 0.85rem 'Geist', sans-serif; letter-spacing: 2px; }
+        .engineering-card h3 { font-size: 1.35rem; margin: 2rem 0 0.75rem; }
+        .engineering-card p, .principle p { color: var(--white-300); font-size: 0.95rem; }
+        .engineering-card ul { list-style: none; margin-top: 1.25rem; color: var(--white-300); font-size: 0.85rem; }
+        .engineering-card li { margin-top: 0.45rem; }
+        .engineering-card li::before { content: '—'; color: var(--orange-500); margin-right: 0.5rem; }
+        .principles { padding-top: 0; min-height: auto; background: var(--navy-900); }
+        .principle h3 { margin-bottom: 0.6rem; }
+
+        .engineering-intro, .lab-intro {
+            max-width: 780px;
+            margin-right: auto;
+            margin-left: auto;
+            color: var(--white-300);
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+
+        .engineering-intro p + p, .lab-intro p + p { margin-top: 1.25rem; }
+        .engineering-areas, .research-grid, .philosophy-grid { display: grid; gap: 1.5rem; }
+        .engineering-areas { grid-template-columns: repeat(3, 1fr); }
+        .engineering-card { min-height: 0; }
+        .engineering-card h3 { margin-top: 1rem; }
+        .lab-section { min-height: auto; background: var(--navy-900); }
+        .research-grid { grid-template-columns: repeat(2, 1fr); }
+        .research-card { border-top: 2px solid var(--orange-500); padding-top: 1.25rem; }
+        .research-card h3 { font-size: 1.2rem; margin-bottom: 0.7rem; }
+        .research-card p { color: var(--white-300); font-size: 0.95rem; }
+        .philosophy-grid { grid-template-columns: repeat(4, 1fr); }
+        .philosophy-card h3 { font-size: 1.1rem; margin-bottom: 0.6rem; }
+        .philosophy-card p { color: var(--white-300); font-size: 0.9rem; }
+        .engineering-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 3rem; }
+
+        @media (max-width: 768px) {
+            .engineering-areas, .research-grid, .philosophy-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading" id="loader"><div class="loader"></div></div>
+    <div class="cursor" id="cursor"></div><div class="cursor-follower" id="cursorFollower"></div>
+    <nav id="navbar">
+        <a href="index.html" class="logo">Heaveans<span>.</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li><li><a href="about.html">Creative</a></li>
+            <li><a href="engineering.html">Engineering</a></li><li><a href="labs.html">Labs</a></li><li><a href="about-us.html">About Us</a></li>
+            <li><a href="projects.html">Projects</a></li>
+        </ul>
+        <a href="start-project.html" class="nav-contact">Contact Us</a>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">&#9776;</button>
+    </nav>
+    <div id="mobileMenu">
+        <a href="index.html">Home</a><a href="about.html">Creative</a><a href="engineering.html">Engineering</a><a href="labs.html">Labs</a>
+        <a href="about-us.html">About Us</a><a href="projects.html">Projects</a><a href="start-project.html">Contact Us</a>
+        <button class="close-btn" onclick="toggleMobileMenu()">&#10005;</button>
+    </div>
+    <section id="engineering" class="visible">
+        <div class="section-header">
+            <div class="section-label">Engineering</div>
+            <h1 class="section-title">We Build to <span class="text-orange">Find Out.</span></h1>
+        </div>
+        <div class="engineering-intro">
+            <p>Engineering turns questions into systems.</p>
+            <p>At Heaveans Creative Labs, we explore the intersection of electronics, software, artificial intelligence, signal processing, sensing and emerging technologies.</p>
+            <p>Some work begins as research.</p><p>Some becomes a prototype.</p><p>Some becomes a platform.</p>
+            <p>The objective is not to pretend every experiment is production-ready. The objective is to discover what works.</p>
+        </div>
+    </section>
+    <section class="lab-section visible">
+        <div class="section-header"><div class="section-label">Engineering Practice</div><h2 class="section-title">Areas of <span class="text-orange">Exploration</span></h2></div>
+        <div class="engineering-areas">
+            <article class="engineering-card"><div class="number">01 / AI</div><h3>Artificial Intelligence</h3><p>Exploring machine learning, intelligent systems, natural-language interfaces, predictive analytics and AI-assisted decision systems.</p></article>
+            <article class="engineering-card"><div class="number">02 / SIGNALS</div><h3>Signal Processing</h3><p>Investigating methods for extracting useful information from complex signals.</p><ul><li>Wavelet analysis</li><li>Digital signal processing</li><li>Anomaly detection</li><li>Signal classification</li></ul></article>
+            <article class="engineering-card"><div class="number">03 / SYSTEMS</div><h3>Embedded &amp; Connected Systems</h3><p>Connecting software with the physical world through sensors, microcontrollers and connected devices.</p><ul><li>IoT</li><li>Embedded systems</li><li>Electronics</li><li>Sensing</li><li>Edge computing</li></ul></article>
+            <article class="engineering-card"><div class="number">04 / ENERGY</div><h3>Energy Technology</h3><p>Exploring intelligent systems for electricity monitoring, anomaly detection and energy infrastructure.</p></article>
+            <article class="engineering-card"><div class="number">05 / CLIMATE</div><h3>Climate Technology</h3><p>Investigating technology for environmental intelligence, food systems, rainfall monitoring and climate resilience.</p></article>
+            <article class="engineering-card"><div class="number">06 / TELECOMS</div><h3>Telecommunications</h3><p>Exploring spectrum, wireless connectivity, propagation, geospatial systems and intelligent communications.</p></article>
+            <article class="engineering-card"><div class="number">07 / AEROSPACE</div><h3>Radar &amp; Aerospace</h3><p>Exploring radar sensing, GNSS, satellite communications, ionospheric effects and aerospace signal systems.</p></article>
+        </div>
+    </section>
+    <footer class="site-footer"><div class="footer-grid"><div class="footer-brand"><div class="logo">Heaveans<span>.</span></div><p>Design &times; Engineering &times; Intelligence</p><span class="footer-location">Kenya</span></div><div class="footer-column"><h3>Explore</h3><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="about.html">Creative</a></li><li><a href="engineering.html">Engineering</a></li><li><a href="projects.html">Projects</a></li><li><a href="about-us.html">About Us</a></li><li><a href="start-project.html">Start a Project</a></li></ul></div><div class="footer-column"><h3>Connect</h3><ul class="footer-links footer-connect"><li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li><li><a href="https://facebook.com" target="_blank">Facebook</a></li><li><a href="https://instagram.com" target="_blank">Instagram</a></li><li><a href="https://github.com" target="_blank">GitHub</a></li><li><a href="https://x.com" target="_blank">X</a></li><li><a href="https://youtube.com" target="_blank">YouTube</a></li><li><a href="https://tiktok.com" target="_blank">TikTok</a></li></ul></div></div><div class="footer-bottom"><p>Built in Africa. Exploring everywhere.</p><p>&copy; 2026 Heaveans Creative Labs</p></div></footer>
+    <script src="../js/shared.js"></script>
+</body>
+</html>

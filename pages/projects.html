@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Heaveans Creative Labs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/shared.css">
+    <style>
+        /* Projects Section */
+        #projects {
+            background: var(--navy-900);
+        }
+
+        .projects-filter {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .projects-filter-label { width: 100%; color: var(--white-300); font-size: 0.9rem; }
+
+        .filter-btn {
+            padding: 0.6rem 1.5rem;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--white-300);
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--orange-500);
+            border-color: var(--orange-500);
+            color: var(--white);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.025);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--white);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--navy-700), var(--navy-600));
+            position: relative;
+            transition: transform 0.6s var(--transition-smooth);
+        }
+
+        .project-card:hover .project-image {
+            transform: scale(1.08);
+        }
+
+        .project-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10, 22, 40, 0.95), rgba(10, 22, 40, 0.4));
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+            opacity: 0;
+            transition: opacity 0.4s var(--transition-smooth);
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-category {
+            color: var(--orange-400);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            transform: translateY(20px);
+            transition: transform 0.4s var(--transition-smooth) 0.1s;
+        }
+
+        .project-card:hover .project-category {
+            transform: translateY(0);
+        }
+
+        .project-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            transform: translateY(20px);
+            transition: transform 0.4s var(--transition-smooth) 0.15s;
+        }
+
+        .project-card:hover .project-name {
+            transform: translateY(0);
+        }
+
+        .project-desc {
+            color: var(--white-300);
+            font-size: 0.9rem;
+            transform: translateY(20px);
+            transition: transform 0.4s var(--transition-smooth) 0.2s;
+        }
+
+        .project-card:hover .project-desc {
+            transform: translateY(0);
+        }
+
+        .project-arrow {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 48px;
+            height: 48px;
+            background: var(--orange-500);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: translateY(-20px) rotate(-45deg);
+            opacity: 0;
+            transition: all 0.4s var(--transition-smooth) 0.2s;
+        }
+
+        .project-card:hover .project-arrow {
+            transform: translateY(0) rotate(0);
+            opacity: 1;
+        }
+
+        .projects-intro {
+            max-width: 780px;
+            margin-right: auto;
+            margin-left: auto;
+            color: var(--white-300);
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+
+        .projects-intro p + p { margin-top: 1.1rem; }
+
+        .projects-grid {
+            grid-template-columns: 1fr;
+            gap: 1.25rem;
+        }
+
+        .project-card {
+            aspect-ratio: auto;
+            min-height: 0;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.025);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            cursor: default;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            inset: 0 auto 0 0;
+            width: 3px;
+            background: var(--orange-500);
+        }
+
+        .project-card:hover { transform: translateY(-3px); border-color: rgba(255, 107, 53, 0.3); }
+        .project-card .project-image { display: none; }
+        .project-card .project-overlay { position: static; opacity: 1; padding: 0; background: none; display: block; }
+        .project-card .project-category,
+        .project-card .project-name,
+        .project-card .project-desc { transform: none; }
+        .project-card .project-category { margin-bottom: 0.75rem; }
+        .project-card .project-name { font-size: 1.7rem; margin-bottom: 0.75rem; }
+        .project-card .project-desc { font-size: 1rem; line-height: 1.7; max-width: 900px; }
+        .project-card .project-arrow { display: none; }
+        .project-details { color: var(--white-300); font-size: 0.9rem; margin-top: 1.25rem; }
+        .project-details strong { color: var(--white); font-weight: 500; }
+        .project-results { margin-top: 1.25rem; padding: 1rem 1.25rem; border-left: 2px solid var(--orange-400); color: var(--white-200); font-size: 0.9rem; }
+        .project-note { margin-top: 0.9rem; color: var(--orange-400); font-size: 0.82rem; }
+        .more-experiments { min-height: auto; background: var(--navy-800); }
+        .more-experiments p { max-width: 700px; margin-right: auto; margin-left: auto; color: var(--white-300); font-size: 1.05rem; }
+        .more-experiments p + p { margin-top: 1rem; }
+
+        .project-banner { aspect-ratio: 16 / 9; background-position: center; background-size: cover; position: relative; }
+        .project-banner::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 35%, rgba(10, 22, 40, 0.75)); }
+        .project-body { padding: 1.5rem; }
+        .project-number { color: var(--orange-400); font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.75rem; }
+        .project-positioning { color: var(--white-200); font-size: 1rem; margin-bottom: 0.8rem; }
+        .project-details { line-height: 1.8; }
+        .view-project { display: inline-block; margin-top: 1.25rem; color: var(--orange-400); font-size: 0.9rem; font-weight: 600; }
+        .project-card:hover .view-project { color: var(--white); }
+
+        .projects-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+        .project-card { padding: 0; cursor: pointer; min-height: 100%; transition: transform 0.35s var(--transition-smooth), border-color 0.35s; }
+        .project-card::before { display: none; }
+        .project-card .project-image, .project-card .project-overlay { display: none; }
+        .project-card .project-category, .project-card .project-name, .project-card .project-desc { transform: none; }
+        .project-card .project-category { margin-bottom: 0; }
+        .project-card .project-name { font-size: 1.4rem; }
+        .project-card .project-desc { font-size: 0.9rem; }
+        .project-banner { display: block !important; height: auto; }
+        .project-card:hover .project-image { transform: none; }
+        .project-card:hover { transform: translateY(-5px); border-color: rgba(255, 107, 53, 0.35); }
+        .project-card:hover .view-project { color: var(--orange-500); }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .projects-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursorFollower"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="index.html" class="logo">
+            Heaveans<span>.</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">Creative</a></li>
+            <li><a href="engineering.html">Engineering</a></li>
+            <li><a href="labs.html">Labs</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="projects.html">Projects</a></li>
+        </ul>
+        <a href="start-project.html" class="nav-contact">Contact Us</a>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">&#9776;</button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="about.html">Creative</a>
+        <a href="engineering.html">Engineering</a>
+        <a href="labs.html">Labs</a>
+        <a href="about-us.html">About Us</a>
+        <a href="projects.html">Projects</a>
+        <a href="start-project.html">Contact Us</a>
+        <button class="close-btn" onclick="toggleMobileMenu()">&#10005;</button>
+    </div>
+
+    <!-- Projects Section -->
+    <section id="projects" class="visible">
+        <div class="section-header">
+            <div class="section-label">Projects</div>
+            <h1 class="section-title">Ideas in <span class="text-orange">Motion.</span></h1>
+            <div class="projects-intro"><p>Our projects span creative technology, artificial intelligence, engineering, climate, telecommunications and aerospace.</p><p>Some are prototypes.</p><p>Some are research projects.</p><p>Some are concepts.</p><p>Some are still being explored.</p><p>We distinguish between them because experimentation and deployment are not the same thing.</p></div>
+        </div>
+        <div class="projects-filter">
+            <button class="filter-btn active" onclick="filterProjects('all', this)">All</button>
+            <button class="filter-btn" onclick="filterProjects('creative', this)">Creative</button>
+            <button class="filter-btn" onclick="filterProjects('ai', this)">AI</button>
+            <button class="filter-btn" onclick="filterProjects('research', this)">Research</button>
+            <button class="filter-btn" onclick="filterProjects('engineering', this)">Engineering</button>
+            <button class="filter-btn" onclick="filterProjects('climate', this)">Climate</button>
+            <button class="filter-btn" onclick="filterProjects('energy', this)">Energy</button>
+            <button class="filter-btn" onclick="filterProjects('telecommunications', this)">Telecommunications</button>
+            <button class="filter-btn" onclick="filterProjects('aerospace', this)">Aerospace</button>
+        </div>
+        <div class="projects-grid">
+            <a class="project-card" data-category="engineering ai energy" href="project-detail.html?project=gridsense"><div class="project-banner" style="background-image: url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=900&q=80');"></div><div class="project-body"><div class="project-number">01 / ENGINEERING</div><h2 class="project-name">GridSense AI</h2><p class="project-positioning">Making the Grid More Intelligent.</p><p class="project-desc">Signal processing and artificial intelligence for detecting electricity theft and abnormal consumption patterns.</p><p class="project-details"><strong>Area:</strong> Engineering · AI · Energy<br><strong>Status:</strong> Prototype / Research</p><span class="view-project">View Project &rarr;</span></div></a>
+            <a class="project-card" data-category="research ai climate" href="project-detail.html?project=urbantwin"><div class="project-banner" style="background-image: url('https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&w=900&q=80');"></div><div class="project-body"><div class="project-number">02 / CLIMATE</div><h2 class="project-name">UrbanTwin AI</h2><p class="project-positioning">Understanding the Future of African Cities.</p><p class="project-desc">Predictive digital twins for climate risks, infrastructure stress and urban change.</p><p class="project-details"><strong>Area:</strong> AI · Climate · Digital Twins<br><strong>Status:</strong> Research</p><span class="view-project">View Project &rarr;</span></div></a>
+            <a class="project-card" data-category="research climate" href="project-detail.html?project=aerofresh"><div class="project-banner" style="background-image: url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=900&q=80');"></div><div class="project-body"><div class="project-number">03 / CLIMATE</div><h2 class="project-name">AeroFresh</h2><p class="project-positioning">Rethinking Food Waste Through Data.</p><p class="project-desc">Software, data and connected devices for more visible, responsive food systems.</p><p class="project-details"><strong>Area:</strong> Climate · Food Systems · IoT<br><strong>Status:</strong> Building</p><span class="view-project">View Project &rarr;</span></div></a>
+            <a class="project-card" data-category="engineering" href="project-detail.html?project=nestcare"><div class="project-banner" style="background-image: url('https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&w=900&q=80');"></div><div class="project-body"><div class="project-number">04 / ENGINEERING</div><h2 class="project-name">NestCare</h2><p class="project-positioning">Technology for Unstable Power Environments.</p><p class="project-desc">Monitoring, thermal control and fault detection for resilient neonatal technology.</p><p class="project-details"><strong>Area:</strong> Engineering · Health Technology<br><strong>Status:</strong> Prototype</p><span class="view-project">View Project &rarr;</span></div></a>
+            <a class="project-card" data-category="research ai" href="project-detail.html?project=aquila"><div class="project-banner" style="background-image: url('https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&w=900&q=80');"></div><div class="project-body"><div class="project-number">05 / AI</div><h2 class="project-name">Aquila</h2><p class="project-positioning">Intelligent Access to Christian Knowledge.</p><p class="project-desc">Natural-language interaction and knowledge systems for digital learning.</p><p class="project-details"><strong>Area:</strong> AI · Digital · Knowledge<br><strong>Status:</strong> Research</p><span class="view-project">View Project &rarr;</span></div></a>
+            <a class="project-card" data-category="research ai" href="project-detail.html?project=dawayetu"><div class="project-banner" style="background-image: url('https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=900&q=80');"></div><div class="project-body"><div class="project-number">06 / KNOWLEDGE</div><h2 class="project-name">DawaYetu</h2><p class="project-positioning">Preserving Knowledge. Expanding Access.</p><p class="project-desc">Responsible knowledge systems for organising traditional herbal knowledge.</p><p class="project-details"><strong>Area:</strong> AI · Knowledge · Digital<br><strong>Status:</strong> Research</p><span class="view-project">View Project &rarr;</span></div></a>
+            <a class="project-card" data-category="research telecommunications ai" href="project-detail.html?project=wekeza"><div class="project-banner" style="background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80');"></div><div class="project-body"><div class="project-number">07 / TELECOMMUNICATIONS</div><h2 class="project-name">Wekeza WSDB</h2><p class="project-positioning">The Future of Spectrum-Aware Connectivity.</p><p class="project-desc">A Kenyan-owned TV White Space geolocation database concept.</p><p class="project-details"><strong>Area:</strong> Telecommunications · AI · Geospatial<br><strong>Status:</strong> Research</p><span class="view-project">View Project &rarr;</span></div></a>
+            <a class="project-card" data-category="research aerospace" href="project-detail.html?project=anga"><div class="project-banner" style="background-image: url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=900&q=80');"></div><div class="project-body"><div class="project-number">08 / AEROSPACE</div><h2 class="project-name">Anga Sentinel</h2><p class="project-positioning">Watching the Signals Above Us.</p><p class="project-desc">A proposed network for studying ionospheric effects and signal disturbances.</p><p class="project-details"><strong>Area:</strong> Aerospace · GNSS · Digital Signal Processing<br><strong>Status:</strong> Research Concept</p><span class="view-project">View Project &rarr;</span></div></a>
+            <a class="project-card" data-category="research climate aerospace" href="project-detail.html?project=radari"><div class="project-banner" style="background-image: url('https://images.unsplash.com/photo-1534088568595-a066f410bcda?auto=format&fit=crop&w=900&q=80');"></div><div class="project-body"><div class="project-number">09 / CLIMATE</div><h2 class="project-name">Radari Mvua</h2><p class="project-positioning">Seeing Rain Before It Becomes a Crisis.</p><p class="project-desc">Low-cost radar and AI for rainfall monitoring and local weather intelligence.</p><p class="project-details"><strong>Area:</strong> Radar · Climate · AI<br><strong>Status:</strong> Research Concept</p><span class="view-project">View Project &rarr;</span></div></a>
+        </div>
+    </section>
+
+    <section class="more-experiments visible"><div class="section-header"><div class="section-label">Still Exploring</div><h2 class="section-title">More Experiments Are <span class="text-orange">Coming.</span></h2></div><p>The Lab is continuously exploring new questions across design, engineering and emerging technology.</p><p>Some will become projects.</p><p>Some will remain experiments.</p><p>That is part of the process.</p></section>
+
+    <!-- Footer -->
+    <footer class="site-footer"><div class="footer-grid"><div class="footer-brand"><div class="logo">Heaveans<span>.</span></div><p>Design &times; Engineering &times; Intelligence</p><span class="footer-location">Kenya</span></div><div class="footer-column"><h3>Explore</h3><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="about.html">Creative</a></li><li><a href="engineering.html">Engineering</a></li><li><a href="projects.html">Projects</a></li><li><a href="about-us.html">About Us</a></li><li><a href="start-project.html">Start a Project</a></li></ul></div><div class="footer-column"><h3>Connect</h3><ul class="footer-links footer-connect"><li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li><li><a href="https://facebook.com" target="_blank">Facebook</a></li><li><a href="https://instagram.com" target="_blank">Instagram</a></li><li><a href="https://github.com" target="_blank">GitHub</a></li><li><a href="https://x.com" target="_blank">X</a></li><li><a href="https://youtube.com" target="_blank">YouTube</a></li><li><a href="https://tiktok.com" target="_blank">TikTok</a></li></ul></div></div><div class="footer-bottom"><p>Built in Africa. Exploring everywhere.</p><p>&copy; 2026 Heaveans Creative Labs</p></div></footer>
+
+    <script src="../js/shared.js"></script>
+    <script>
+        function filterProjects(category, btn) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const cards = document.querySelectorAll('.project-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category.split(' ').includes(category)) {
+                    card.style.display = 'block';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                    }, 50);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.9)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 300);
+                }
+            });
+        }
+    </script>
+</body>
+</html>

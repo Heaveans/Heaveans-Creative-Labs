@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heaveans Creative Labs - Design, Engineering & Intelligence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/shared.css">
+    <style>
+        /* Home Section Specific Styles */
+        #home {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(255, 107, 53, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(36, 59, 85, 0.4) 0%, transparent 50%),
+                var(--navy-900);
+            min-height: 100vh;
+            padding: 8rem 4rem 4rem;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero-label {
+            display: inline-block;
+            padding: 0.5rem 1.25rem;
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--orange-400);
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 5.25rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.05;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .hero-title .highlight {
+            color: var(--orange-500);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-title .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 107, 53, 0.2);
+            z-index: -1;
+            transform: skewX(-12deg);
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--white-300);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            font-weight: 300;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            animation: fadeInUp 1s ease 0.8s both;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator span {
+            display: block;
+            width: 1px;
+            height: 60px;
+            background: linear-gradient(to bottom, var(--orange-500), transparent);
+        }
+
+        @media (max-width: 768px) {
+            #home {
+                padding: 6rem 1.5rem 3rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        .home-band {
+            min-height: auto;
+            padding-top: 8rem;
+            padding-bottom: 8rem;
+            text-align: center;
+        }
+
+        .home-band.navy-light {
+            background: var(--navy-800);
+        }
+
+        .home-copy {
+            max-width: 760px;
+            margin-right: auto;
+            margin-left: auto;
+            color: var(--white-300);
+            font-size: 1.15rem;
+            font-weight: 300;
+        }
+
+        .home-copy p + p {
+            margin-top: 1.25rem;
+        }
+
+        .explore-grid,
+        .project-list {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .explore-item,
+        .project-item {
+            border-top: 2px solid var(--orange-500);
+            padding-top: 1.25rem;
+        }
+
+        .explore-item,
+        .project-item {
+            text-align: center;
+        }
+
+        .explore-item h3,
+        .project-item h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .explore-item p,
+        .project-item p {
+            color: var(--white-300);
+            font-size: 0.95rem;
+        }
+
+        .project-list {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem 3rem;
+        }
+
+        .project-item .project-type {
+            color: var(--orange-400);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .home-cta {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .home-cta .section-header {
+            margin-bottom: 0;
+        }
+
+        .home-cta .home-copy {
+            max-width: 620px;
+        }
+
+        .home-cta .btn {
+            margin-top: 0.25rem;
+        }
+
+        @media (max-width: 768px) {
+            .home-band {
+                padding-top: 6rem;
+                padding-bottom: 6rem;
+            }
+
+            .explore-grid,
+            .project-list {
+                grid-template-columns: 1fr;
+            }
+
+            .home-cta {
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursorFollower"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="index.html" class="logo">
+            Heaveans<span>.</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">Creative</a></li>
+            <li><a href="engineering.html">Engineering</a></li>
+            <li><a href="labs.html">Labs</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="projects.html">Projects</a></li>
+        </ul>
+        <a href="start-project.html" class="nav-contact">Contact Us</a>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">&#9776;</button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="about.html">Creative</a>
+        <a href="engineering.html">Engineering</a>
+        <a href="labs.html">Labs</a>
+        <a href="about-us.html">About Us</a>
+        <a href="projects.html">Projects</a>
+        <a href="start-project.html">Contact Us</a>
+        <button class="close-btn" onclick="toggleMobileMenu()">&#10005;</button>
+    </div>
+
+    <!-- Home Section -->
+    <section id="home" class="visible">
+        <div class="bg-pattern"></div>
+        <div class="hero-content">
+            <div class="hero-label">Design × Engineering × Intelligence</div>
+            <h1 class="hero-title">
+                We Create at the <span class="highlight">Edge</span><br>of Possibility
+            </h1>
+            <p class="hero-subtitle">
+                A creative-technology and innovation studio from Kenya. We explore what becomes
+                possible when design, engineering and intelligence work together.
+            </p>
+            <div class="hero-cta">
+                <a href="projects.html" class="btn btn-primary">
+                    Explore Our Work &rarr;
+                </a>
+                <a href="about-us.html" class="btn btn-secondary">
+                    About Us
+                </a>
+                <a href="start-project.html" class="btn btn-secondary">
+                    Enter the Lab
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+    </section>
+
+    <section class="home-band navy-light visible">
+        <div class="section-header">
+            <div class="section-label">Our Point of View</div>
+            <h2 class="section-title">Where Creativity Meets <span class="text-orange">Technology</span></h2>
+        </div>
+        <div class="home-copy">
+            <p>Some ideas need design.</p>
+            <p>Some need engineering.</p>
+            <p>Some need intelligence.</p>
+            <p>The most interesting ones need all three.</p>
+            <p>Heaveans Creative Labs exists to explore that space — turning ideas, problems and questions into things that can be understood, tested and built.</p>
+        </div>
+    </section>
+
+    <section class="home-band visible">
+        <div class="section-header">
+            <div class="section-label">Our Fields of Exploration</div>
+            <h2 class="section-title">What We <span class="text-orange">Explore</span></h2>
+        </div>
+        <div class="explore-grid">
+            <article class="explore-item"><h3>Creative</h3><p>Visual communication, branding, digital experiences and creative systems.</p></article>
+            <article class="explore-item"><h3>Engineering</h3><p>Electronics, embedded systems, IoT, signal processing and technical prototypes.</p></article>
+            <article class="explore-item"><h3>Intelligence</h3><p>Artificial intelligence, machine learning, data systems and intelligent applications.</p></article>
+            <article class="explore-item"><h3>Emerging Technology</h3><p>Climate technology, telecommunications, radar, satellite systems, GNSS and geospatial technologies.</p></article>
+        </div>
+    </section>
+
+    <section class="home-band navy-light visible">
+        <div class="section-header">
+            <div class="section-label">Selected Work</div>
+            <h2 class="section-title">Ideas in <span class="text-orange">Motion</span></h2>
+        </div>
+        <div class="project-list">
+            <article class="project-item"><div class="project-type">AI · Energy</div><h3>GridSense AI</h3><p>Exploring AI and signal processing for electricity theft detection and energy intelligence.</p></article>
+            <article class="project-item"><div class="project-type">AI · Climate</div><h3>UrbanTwin AI</h3><p>Exploring predictive digital twins for climate-resilient African cities.</p></article>
+            <article class="project-item"><div class="project-type">Food Systems</div><h3>AeroFresh</h3><p>Exploring data and connected technologies for reducing food waste.</p></article>
+            <article class="project-item"><div class="project-type">Health · Engineering</div><h3>NestCare</h3><p>Exploring resilient neonatal technology for unstable power environments.</p></article>
+        </div>
+        <a href="projects.html" class="btn btn-secondary" style="margin-top: 3rem;">Explore All Projects &rarr;</a>
+    </section>
+
+    <section class="home-band visible">
+        <div class="section-header">
+            <div class="section-label">The Lab</div>
+            <h2 class="section-title">Ideas in <span class="text-orange">Motion</span></h2>
+        </div>
+        <div class="home-copy">
+            <p>Not every idea starts as a business.</p>
+            <p>Some start as a question.</p>
+            <p>Some start as an experiment.</p>
+            <p>Some start with a problem that technology might be able to solve.</p>
+            <p>The Lab explores these ideas through research, design, prototyping and experimentation.</p>
+        </div>
+    </section>
+
+    <section class="home-band navy-light visible">
+        <div class="section-header">
+            <div class="section-label">Our Perspective</div>
+            <h2 class="section-title">Built in Africa. <span class="text-orange">Exploring Everywhere.</span></h2>
+        </div>
+        <div class="home-copy">
+            <p>Our starting point is Kenya.</p>
+            <p>Our questions are global.</p>
+            <p>We are interested in technologies that respond to real environments, real constraints and real opportunities — particularly across Africa.</p>
+        </div>
+    </section>
+
+    <section class="home-band home-cta visible">
+        <div class="section-header">
+            <div class="section-label">Begin Somewhere</div>
+            <h2 class="section-title">Have an <span class="text-orange">Idea?</span></h2>
+            <div class="home-copy"><p>A brand. A digital product. A technical prototype. A research question. An emerging technology. Or something that does not have a name yet.</p></div>
+        </div>
+        <a href="start-project.html" class="btn btn-primary">Start a Project &rarr;</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer"><div class="footer-grid"><div class="footer-brand"><div class="logo">Heaveans<span>.</span></div><p>Design &times; Engineering &times; Intelligence</p><span class="footer-location">Kenya</span></div><div class="footer-column"><h3>Explore</h3><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="about.html">Creative</a></li><li><a href="engineering.html">Engineering</a></li><li><a href="projects.html">Projects</a></li><li><a href="about-us.html">About Us</a></li><li><a href="start-project.html">Start a Project</a></li></ul></div><div class="footer-column"><h3>Connect</h3><ul class="footer-links footer-connect"><li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li><li><a href="https://facebook.com" target="_blank">Facebook</a></li><li><a href="https://instagram.com" target="_blank">Instagram</a></li><li><a href="https://github.com" target="_blank">GitHub</a></li><li><a href="https://x.com" target="_blank">X</a></li><li><a href="https://youtube.com" target="_blank">YouTube</a></li><li><a href="https://tiktok.com" target="_blank">TikTok</a></li></ul></div></div><div class="footer-bottom"><p>Built in Africa. Exploring everywhere.</p><p>&copy; 2026 Heaveans Creative Labs</p></div></footer>
+
+    <script src="../js/shared.js"></script>
+</body>
+</html>

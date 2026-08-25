@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative - Heaveans Creative Labs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="../css/shared.css">
+    <style>
+        #creative { min-height: auto; background: var(--navy-900); }
+        .creative-intro { max-width: 760px; margin: 0 auto; color: var(--white-300); font-size: 1.15rem; font-weight: 300; }
+        .creative-intro p + p { margin-top: 1.25rem; }
+        .creative-choices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; max-width: 760px; margin: 0 auto; }
+        .creative-choice { border: 1px solid rgba(255,255,255,.1); border-top: 3px solid var(--orange-500); padding: 2rem; color: var(--white); text-decoration: none; background: rgba(255,255,255,.025); transition: transform .35s, border-color .35s; }
+        .creative-choice:hover { transform: translateY(-6px); border-color: var(--orange-500); }
+        .creative-choice span { color: var(--orange-400); font-size: .75rem; letter-spacing: 2px; }
+        .creative-choice h2 { font-size: 1.45rem; margin: 1.5rem 0 .75rem; }
+        .creative-choice p { color: var(--white-300); font-size: .95rem; }
+        .creative-choice strong { display: inline-block; margin-top: 1.5rem; color: var(--orange-400); font-size: .9rem; }
+        @media(max-width:768px){.creative-choices{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+    <div class="loading" id="loader"><div class="loader"></div></div><div class="cursor" id="cursor"></div><div class="cursor-follower" id="cursorFollower"></div>
+    <nav id="navbar"><a href="index.html" class="logo">Heaveans<span>.</span></a><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="about.html">Creative</a></li><li><a href="engineering.html">Engineering</a></li><li><a href="labs.html">Labs</a></li><li><a href="about-us.html">About Us</a></li><li><a href="projects.html">Projects</a></li></ul><a href="start-project.html" class="nav-contact">Contact Us</a><button class="mobile-menu-btn" onclick="toggleMobileMenu()">&#9776;</button></nav>
+    <div id="mobileMenu"><a href="index.html">Home</a><a href="about.html">Creative</a><a href="creative-work.html">Creative Work</a><a href="graphics-portfolio.html">Graphics Portfolio</a><a href="web-design.html">Web Design</a><a href="engineering.html">Engineering</a><a href="labs.html">Labs</a><a href="about-us.html">About Us</a><a href="projects.html">Projects</a><a href="start-project.html">Contact Us</a><button class="close-btn" onclick="toggleMobileMenu()">&#10005;</button></div>
+    <section id="creative" class="visible"><div class="section-header"><div class="section-label">Creative</div><h1 class="section-title">Ideas Need a <span class="text-orange">Language.</span></h1></div><div class="creative-intro"><p>Creative work is not decoration.</p><p>It is how ideas become visible, understandable and memorable.</p><p>Our creative practice brings together brand identity, visual communication, digital experiences and creative technology to help ideas become clear, distinctive and useful.</p></div></section>
+    <section class="visible"><div class="section-header"><div class="section-label">Creative Practice</div><h2 class="section-title">Explore the <span class="text-orange">Work.</span></h2></div><div class="creative-choices"><a class="creative-choice" href="graphics-portfolio.html"><span>01 / VISUAL ARCHIVE</span><h2>Graphics Portfolio</h2><p>Browse visual work across graphic design, brand identity, campaigns, social media, print and editorial.</p><strong>View Graphics Portfolio &rarr;</strong></a><a class="creative-choice" href="web-design.html"><span>02 / DIGITAL EXPERIENCES</span><h2>Web Design</h2><p>See responsive websites and digital experiences that bring structure, interaction and purpose to the browser.</p><strong>Explore Web Design &rarr;</strong></a></div></section>
+    <footer class="site-footer"><div class="footer-grid"><div class="footer-brand"><div class="logo">Heaveans<span>.</span></div><p>Design &times; Engineering &times; Intelligence</p><span class="footer-location">Kenya</span></div><div class="footer-column"><h3>Explore</h3><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="about.html">Creative</a></li><li><a href="creative-work.html">Creative Work</a></li><li><a href="graphics-portfolio.html">Graphics Portfolio</a></li><li><a href="web-design.html">Web Design</a></li><li><a href="engineering.html">Engineering</a></li><li><a href="projects.html">Projects</a></li><li><a href="start-project.html">Start a Project</a></li></ul></div><div class="footer-column"><h3>Connect</h3><ul class="footer-links footer-connect"><li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li><li><a href="https://facebook.com" target="_blank">Facebook</a></li><li><a href="https://instagram.com" target="_blank">Instagram</a></li><li><a href="https://github.com" target="_blank">GitHub</a></li><li><a href="https://x.com" target="_blank">X</a></li><li><a href="https://youtube.com" target="_blank">YouTube</a></li><li><a href="https://tiktok.com" target="_blank">TikTok</a></li></ul></div></div><div class="footer-bottom"><p>Built in Africa. Exploring everywhere.</p><p>&copy; 2026 Heaveans Creative Labs</p></div></footer>
+    <script src="../js/shared.js"></script>
+</body></html>
