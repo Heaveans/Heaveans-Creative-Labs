@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Capabilities - Heaveans Creative Labs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/shared.css">
+    <style>
+        /* Creative Section */
+        #creative {
+            background: var(--navy-800);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: all 0.4s var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--orange-500), var(--orange-400));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s var(--transition-smooth);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 107, 53, 0.2);
+            background: rgba(255, 255, 255, 0.04);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(255, 107, 53, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            color: var(--orange-500);
+            transition: all 0.3s;
+        }
+
+        .service-card:hover .service-icon {
+            background: var(--orange-500);
+            color: var(--white);
+            transform: scale(1.1) rotate(-5deg);
+        }
+
+        .service-card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .service-card p {
+            color: var(--white-300);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .service-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            padding: 0.35rem 0.85rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            color: var(--white-300);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursorFollower"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="index.html" class="logo">
+            Heaveans<span>.</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">Creative</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="start-project.html">Lab</a></li>
+        </ul>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">&#9776;</button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="about.html">Creative</a>
+        <a href="projects.html">Projects</a>
+        <a href="start-project.html">Lab</a>
+        <button class="close-btn" onclick="toggleMobileMenu()">&#10005;</button>
+    </div>
+
+    <!-- Creative Section -->
+    <section id="creative" class="visible">
+        <div class="section-header">
+            <div class="section-label">What We Do</div>
+            <h2 class="section-title">Creative <span class="text-orange">Capabilities</span></h2>
+            <p class="section-desc">
+                From concept to launch, we provide end-to-end creative solutions that elevate brands and engage audiences.
+            </p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">&#9670;</div>
+                <h3>Brand Strategy</h3>
+                <p>We build authentic brand identities that resonate with your audience and stand the test of time.</p>
+                <div class="service-tags">
+                    <span class="tag">Identity</span>
+                    <span class="tag">Positioning</span>
+                    <span class="tag">Guidelines</span>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">&#9635;</div>
+                <h3>Web Design</h3>
+                <p>Beautiful, functional websites that tell your story and convert visitors into loyal customers.</p>
+                <div class="service-tags">
+                    <span class="tag">UI/UX</span>
+                    <span class="tag">Responsive</span>
+                    <span class="tag">Motion</span>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">&#9678;</div>
+                <h3>Development</h3>
+                <p>Clean, scalable code that powers exceptional digital experiences across all platforms.</p>
+                <div class="service-tags">
+                    <span class="tag">Frontend</span>
+                    <span class="tag">Backend</span>
+                    <span class="tag">CMS</span>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">&#9673;</div>
+                <h3>Digital Marketing</h3>
+                <p>Data-driven campaigns that amplify your reach and deliver measurable growth.</p>
+                <div class="service-tags">
+                    <span class="tag">SEO</span>
+                    <span class="tag">Social</span>
+                    <span class="tag">Content</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="logo">Heaveans<span>.</span></div>
+        <p>Creating digital experiences that inspire and endure.</p>
+        <div class="social-links">
+            <a href="https://x.com" target="_blank" aria-label="X / Twitter">𝕏</a>
+            <a href="https://facebook.com" target="_blank" aria-label="Facebook">f</a>
+            <a href="https://youtube.com" target="_blank" aria-label="YouTube">▶</a>
+            <a href="https://tiktok.com" target="_blank" aria-label="TikTok">♪</a>
+        </div>
+        <p style="margin-top: 1rem; opacity: 0.5;">&copy; 2026 Heaveans Creative Labs. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/shared.js"></script>
+</body>
+</html>

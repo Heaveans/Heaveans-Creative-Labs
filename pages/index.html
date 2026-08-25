@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heaveans Creative Labs - Digital Experiences</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/shared.css">
+    <style>
+        /* Home Section Specific Styles */
+        #home {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(255, 107, 53, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(36, 59, 85, 0.4) 0%, transparent 50%),
+                var(--navy-900);
+            min-height: 100vh;
+            padding: 8rem 4rem 4rem;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero-label {
+            display: inline-block;
+            padding: 0.5rem 1.25rem;
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--orange-400);
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 6.5rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.05;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .hero-title .highlight {
+            color: var(--orange-500);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-title .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 107, 53, 0.2);
+            z-index: -1;
+            transform: skewX(-12deg);
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--white-300);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            font-weight: 300;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            animation: fadeInUp 1s ease 0.8s both;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator span {
+            display: block;
+            width: 1px;
+            height: 60px;
+            background: linear-gradient(to bottom, var(--orange-500), transparent);
+        }
+
+        @media (max-width: 768px) {
+            #home {
+                padding: 6rem 1.5rem 3rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursorFollower"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="index.html" class="logo">
+            Heaveans<span>.</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">Creative</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="start-project.html">Lab</a></li>
+        </ul>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">&#9776;</button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="about.html">Creative</a>
+        <a href="projects.html">Projects</a>
+        <a href="start-project.html">Lab</a>
+        <button class="close-btn" onclick="toggleMobileMenu()">&#10005;</button>
+    </div>
+
+    <!-- Home Section -->
+    <section id="home" class="visible">
+        <div class="bg-pattern"></div>
+        <div class="hero-content">
+            <div class="hero-label">Creative Digital Agency</div>
+            <h1 class="hero-title">
+                We Craft <span class="highlight">Digital</span><br>Experiences
+            </h1>
+            <p class="hero-subtitle">
+                Heaveans Creative Labs transforms bold ideas into immersive digital realities.
+                Where strategy meets design and technology becomes art.
+            </p>
+            <div class="hero-cta">
+                <a href="projects.html" class="btn btn-primary">
+                    View Our Work &rarr;
+                </a>
+                <a href="start-project.html" class="btn btn-secondary">
+                    Start a Project
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="logo">Heaveans<span>.</span></div>
+        <p>Creating digital experiences that inspire and endure.</p>
+        <div class="social-links">
+            <a href="https://x.com" target="_blank" aria-label="X / Twitter">𝕏</a>
+            <a href="https://facebook.com" target="_blank" aria-label="Facebook">f</a>
+            <a href="https://youtube.com" target="_blank" aria-label="YouTube">▶</a>
+            <a href="https://tiktok.com" target="_blank" aria-label="TikTok">♪</a>
+        </div>
+        <p style="margin-top: 1rem; opacity: 0.5;">&copy; 2026 Heaveans Creative Labs. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/shared.js"></script>
+</body>
+</html>
